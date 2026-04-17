@@ -23,7 +23,7 @@ double Recommender::calculateSimilarity(const std::map<std::string,double>&userA
     for (auto const& [_,ratingB] : userB) {
         normB += std::pow(ratingB,2);
     }
-    return  (normA == 0 || normB == 0 ) ? 0.0 : (dotProduct / (std::sqrt(normA*normB)));
+    return  (normA == 0 || normB == 0 ) ? 0.0 : (dotProduct / (std::sqrt(normA) * std::sqrt(normB)));
 }
 
 std::vector <std::pair<std::string,double>> Recommender::getRecommendations(
@@ -55,7 +55,7 @@ std::vector <std::pair<std::string,double>> Recommender::getRecommendations(
             return !targetRating.contains(movie)&& rating > 3.0;
         });
     //3 Convert to a vector
-    std::vector<std::pair<std::string,double>> suggestions;(
+    std::vector<std::pair<std::string,double>> suggestions(
         recommendationsView.begin(),recommendationsView.end());
     std::ranges::sort(suggestions,std::ranges::greater{},
         [](const auto& p) {return p.second;});
