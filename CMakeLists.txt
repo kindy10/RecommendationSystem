@@ -5,4 +5,5 @@ set(CMAKE_CXX_STANDARD 23)
 
 add_executable(Recommendation_System src/main.cpp
         include/DataLoader.h
+        include/Recommender.h
 )
