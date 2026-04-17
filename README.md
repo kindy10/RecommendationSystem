@@ -28,7 +28,9 @@ similarity calculation, and recommendation output.
 
 The core of the engine uses Cosine Similarity to determine the proximity between two non-zero
 vectors. This is calculated as:
+
 $$\text{similarity} = \cos(\theta) = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\| \|\mathbf{B}\|} = \frac{\sum_{i=1}^{n} A_i B_i}{\sqrt{\sum_{i=1}^{n} A_i^2} \sqrt{\sum_{i=1}^{n} B_i^2}}$$
+
 By mapping users and items into this vector space, the system identifies the "nearest neighbors" to provide highly accurate suggestions.
 
 **📂 Project Structure**
